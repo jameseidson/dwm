@@ -26,10 +26,10 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class           instance    title       tags mask     isfloating   monitor */
-	{ "Alacritty",     NULL,       NULL,       1,            0,           -1 },
-  { "firefox",       NULL,       NULL,       1 << 1,       0,           -1 },
-  { "Code",          NULL,       NULL,       1 << 2,       0,           -1 },
+	/* class           instance    title       tags mask     switchtotag   isfloating   monitor */
+	{ "Alacritty",     NULL,       NULL,       1,            1,            0,           -1 },
+	{ "firefox",       NULL,       NULL,       1 << 1,       1,            0,           -1 },
+	{ "Code",          NULL,       NULL,       1 << 2,       1,            0,           -1 },
 };
 
 /* layout(s) */
