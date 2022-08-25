@@ -6,7 +6,10 @@ static const unsigned int gappx     = 20;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Misc Tamsyn:size=12" };
+static const int horizpadbar        = 10;       /* horizontal padding for statusbar */
+static const int vertpadbar         = 10;       /* vertical padding for statusbar */
+// static const char *fonts[]          = { "Misc Tamsyn:size=12" };
+static const char *fonts[]          = { "Cozette:size=10" };
 static const char rofitheme[]       = "gruvbox-dark-hard";
 
 /* gruvbox colors */
@@ -18,7 +21,7 @@ static const char dark0_hard[]      = "#1D2021";
 // static const char dark3[]           = "#665C54";
 // static const char dark4[]           = "#7C6F64";
 
-// static const char gray_245[]        = "#928374";
+static const char gray_245[]        = "#928374";
 // static const char gray_244[]        = "#928374";
 
 // static const char light0_hard[]     = "#F9F5D7";
@@ -59,17 +62,17 @@ static const char forest_green[]    = "#302F17";
 static const char *colors[][3]      = {
 	/*                  text           background      border                         */
 	[SchemeNorm]      = { light1,      dark0_hard,    forest_green  }, // unfocused window
-	[SchemeSel]       = { light1,      dark0_hard,    light1      }, // focused window 
+	[SchemeSel]       = { light1,      dark0_hard,    gray_245      }, // focused window 
 	[SchemeStatus]    = { light1,      dark0_hard,    "#000000"   }, // Statusbar right
-	[SchemeTagsSel]   = { light1,      forest_green,    "#000000"   }, // Tagbar left selected
+	[SchemeTagsSel]   = { light1,      gray_245,    "#000000"   }, // Tagbar left selected
 	[SchemeTagsNorm]  = { light1,      dark0_hard,  "#000000"   }, // Tagbar left unselected
 	[SchemeInfoSel]   = { light1,      forest_green,    "#000000"   }, // infobar middle selected
 	[SchemeInfoNorm]  = { light1,      dark0_hard,    "#000000"   }, // infobar middle unselected
 };
 
 /* tagging */
-//static const char *tags[] = { "", "", "﬏", "4", "5", "6", "7", "8", "9" };
-static const char *tags[] = { "[term]", "[web ]", "[code]", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "", "", "﬏", "4", "5", "6", "7", "8", "9" };
+//static const char *tags[] = { "[term]", "[web ]", "[code]", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
 	/* xprop(1):
