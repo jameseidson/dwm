@@ -713,8 +713,7 @@ dirtomon(int dir)
 void
 drawbar(Monitor *m)
 {
-  	char buf[16];
-	int nmw, x, w, tw = 0;
+	int x, w, tw = 0;
 	int boxs = drw->fonts->h / 9;
 	int boxw = drw->fonts->h / 6 + 2;
 	unsigned int i, occ = 0, urg = 0;
@@ -747,14 +746,10 @@ drawbar(Monitor *m)
 		x += w;
 	}
 
-	snprintf(buf, sizeof(buf), "%d|=", m->nmaster);
-
 	w = blw = TEXTW(m->ltsymbol);
-	nmw = TEXTW(buf);
 	
 	drw_setscheme(drw, scheme[SchemeTagsNorm]);
 	x = drw_text(drw, x, 0, w, bh, lrpad / 2, m->ltsymbol, 0);
-	x = drw_text(drw, x, 0, nmw, bh, lrpad / 2, buf, 0);
 	
 	if ((w = m->ww - tw - x) > bh) {
 		if (m->sel) {
@@ -1727,6 +1722,9 @@ tile(Monitor *m)
 			if (ty + HEIGHT(c) < m->wh)
 				ty += HEIGHT(c) + m->gappx;
 		}
+	
+	/* override layout symbol */
+	snprintf(m->ltsymbol, sizeof(m->ltsymbol), "%d|=", m->nmaster);
 }
 
 void
