@@ -11,7 +11,7 @@ static const int vertpadbar         = 10;       /* vertical padding for statusba
 static const int vertpad            = 10;       /* vertical padding of bar */
 static const int sidepad            = 10;       /* horizontal padding of bar */
 static const char *fonts[]          = { "Misc Tamsyn:size=12" };
-static const char rofitheme[]       = "gruvbox-dark-hard";
+// static const char rofitheme[]       = "gruvbox-dark-hard";
 
 /* gruvbox colors */
 static const char dark0_hard[]      = "#1D2021";
@@ -25,7 +25,7 @@ static const char dark0_hard[]      = "#1D2021";
 static const char gray_245[]        = "#928374";
 // static const char gray_244[]        = "#928374";
 
-// static const char light0_hard[]     = "#F9F5D7";
+static const char light0_hard[]     = "#F9F5D7";
 // static const char light0[]          = "#FBF1C7";
 // static const char light0_soft[]     = "#F2E5BC";
 static const char light1[]          = "#EBDBB2";
@@ -50,8 +50,8 @@ static const char light1[]          = "#EBDBB2";
 // static const char neutral_orange[]  = "#D65D0E";
 
 // static const char faded_red[]       = "#9D0006";
-static const char faded_green[]     = "#79740E";
-//static const char faded_yellow[]    = "#B57614";
+// static const char faded_green[]     = "#79740E";
+static const char faded_yellow[]    = "#B57614";
 //static const char faded_blue[]      = "#076678";
 //static const char faded_purple[]    = "#8F3F71";
 //static const char faded_aqua[]      = "#427B58";
@@ -65,14 +65,14 @@ static const char *colors[][3]      = {
 	[SchemeNorm]      = { light1,      dark0_hard,    dark0_hard  }, // unfocused window
 	[SchemeSel]       = { light1,      dark0_hard,    gray_245    }, // focused window 
 	[SchemeStatus]    = { light1,      dark0_hard,    "#000000"   }, // Statusbar right
-	[SchemeTagsSel]   = { light1,      forest_green,  "#000000"   }, // Tagbar left selected
+	[SchemeTagsSel]   = { light0_hard, faded_yellow,  "#000000"   }, // Tagbar left selected
 	[SchemeTagsNorm]  = { light1,      dark0_hard,    "#000000"   }, // Tagbar left unselected
-	[SchemeInfoSel]   = { light1,      forest_green,  "#000000"   }, // infobar middle selected
+	[SchemeInfoSel]   = { light0_hard, forest_green,  "#000000"   }, // infobar middle selected
 	[SchemeInfoNorm]  = { light1,      dark0_hard,    "#000000"   }, // infobar middle unselected
 };
 
 /* tagging */
-static const char *tags[] = { "", "", "", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "", "", "", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -81,8 +81,8 @@ static const Rule rules[] = {
 	 */
 	/* class           instance    title       tags mask     switchtotag   isfloating   monitor */
 	{ "Alacritty",     NULL,       NULL,       1,            1,            0,           -1 },
-	{ "firefox",       NULL,       NULL,       1 << 1,       1,            0,           -1 },
-	{ "Code",          NULL,       NULL,       1 << 2,       1,            0,           -1 },
+	{ "Code",          NULL,       NULL,       1 << 1,       1,            0,           -1 },
+	{ "firefox",       NULL,       NULL,       1 << 2,       1,            0,           -1 }
 };
 
 /* layout(s) */
@@ -112,8 +112,9 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *termcmd[]  = { "alacritty", NULL };
-static const char *dmenucmd[] = { "rofi", "-modi", "drun", "-show", "drun", "-theme", rofitheme, NULL };
-static const char *swapcmd[] = {"rofi", "-show", "window", "-theme", rofitheme, NULL };
+// static const char *roficmd[] = { "rofi", "-modi", "drun", "-show", "drun", "-theme", rofitheme, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-l", "20", NULL };
+// static const char *swapcmd[] = {"rofi", "-show", "window", "-theme", rofitheme, NULL };
 static const char *browsecmd[]  = { "firefox", NULL };
 static const char *editcmd[]  = { "code", NULL };
 
@@ -132,7 +133,7 @@ static Key keys[] = {
  // { MODKEY,                       XK_l,            setmfact,       {.f = +0.05} },
 	{ MODKEY|ShiftMask,             XK_Return,       zoom,           {0} },
 	{ MODKEY,                       XK_Tab,          view,           {0} },
-	{ MODKEY|ShiftMask,             XK_Tab,          spawn,          {.v = swapcmd} },
+//  { MODKEY|ShiftMask,             XK_Tab,          spawn,          {.v = swapcmd} },
 	{ MODKEY,                       XK_q,            killclient,     {0} },
 	{ MODKEY,                       XK_t,            setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,            setlayout,      {.v = &layouts[1]} },
