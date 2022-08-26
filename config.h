@@ -11,7 +11,6 @@ static const int vertpadbar         = 10;       /* vertical padding for statusba
 static const int vertpad            = 10;       /* vertical padding of bar */
 static const int sidepad            = 10;       /* horizontal padding of bar */
 static const char *fonts[]          = { "Misc Tamsyn:size=12" };
-// static const char rofitheme[]       = "gruvbox-dark-hard";
 
 /* gruvbox colors */
 static const char dark0_hard[]      = "#1D2021";
@@ -55,7 +54,7 @@ static const char faded_yellow[]    = "#B57614";
 //static const char faded_blue[]      = "#076678";
 //static const char faded_purple[]    = "#8F3F71";
 //static const char faded_aqua[]      = "#427B58";
-//static const char faded_orange[]    = "#AF3A03";
+static const char faded_orange[]    = "#AF3A03";
 
 /* custom colors */
 static const char forest_green[]    = "#302F17";
@@ -111,12 +110,11 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *termcmd[]  = { "alacritty", NULL };
-// static const char *roficmd[] = { "rofi", "-modi", "drun", "-show", "drun", "-theme", rofitheme, NULL };
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-l", "20", NULL };
-// static const char *swapcmd[] = {"rofi", "-show", "window", "-theme", rofitheme, NULL };
-static const char *browsecmd[]  = { "firefox", NULL };
-static const char *editcmd[]  = { "code", NULL };
+static const char *termcmd[]   = { "alacritty", NULL };
+static const char *dmenucmd[]  = { "rofi", "-modi", "drun", "-show", "drun", NULL };
+static const char *swapcmd[]   = { "rofi", "-show", "window", NULL };
+static const char *browsecmd[] = { "firefox", NULL }; 
+static const char *editcmd[]   = { "code", NULL };
 
 static Key keys[] = {
 	/* modifier                     key              function        argument */
@@ -133,7 +131,7 @@ static Key keys[] = {
  // { MODKEY,                       XK_l,            setmfact,       {.f = +0.05} },
 	{ MODKEY|ShiftMask,             XK_Return,       zoom,           {0} },
 	{ MODKEY,                       XK_Tab,          view,           {0} },
-//  { MODKEY|ShiftMask,             XK_Tab,          spawn,          {.v = swapcmd} },
+ 	{ MODKEY|ShiftMask,             XK_Tab,          spawn,          {.v = swapcmd} },
 	{ MODKEY,                       XK_q,            killclient,     {0} },
 	{ MODKEY,                       XK_t,            setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,            setlayout,      {.v = &layouts[1]} },
