@@ -54,7 +54,7 @@ static const char faded_yellow[]    = "#B57614";
 //static const char faded_blue[]      = "#076678";
 //static const char faded_purple[]    = "#8F3F71";
 //static const char faded_aqua[]      = "#427B58";
-static const char faded_orange[]    = "#AF3A03";
+// static const char faded_orange[]    = "#AF3A03";
 
 /* custom colors */
 static const char forest_green[]    = "#302F17";
@@ -112,7 +112,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *termcmd[]   = { "alacritty", NULL };
 static const char *dmenucmd[]  = { "rofi", "-modi", "drun", "-show", "drun", NULL };
-static const char *swapcmd[]   = { "rofi", "-show", "window", NULL };
+static const char *swapcmd[]   = { "rofi", "-theme-str", "window {width: 30%;}", "-show", "window", NULL };
 static const char *browsecmd[] = { "firefox", NULL }; 
 static const char *editcmd[]   = { "code", NULL };
 
