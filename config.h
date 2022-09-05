@@ -78,10 +78,11 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class           instance    title       tags mask     switchtotag   isfloating   monitor */
-	{ "Alacritty",     NULL,       NULL,       1,            1,            0,           -1 },
-	{ "Code",          NULL,       NULL,       1 << 1,       1,            0,           -1 },
-	{ "firefox",       NULL,       NULL,       1 << 2,       1,            0,           -1 }
+	/* class       instance  title  tags mask  switchtotag  isfloating  monitor */
+	{ "Alacritty", NULL,     NULL,  1,         1,           0,          -1 },
+	{ "Code",      NULL,     NULL,  1 << 1,    1,           0,          -1 },
+	{ "firefox",   NULL,     NULL,  1 << 2,    1,           0,          -1 },
+	{ "Bitwarden", NULL,     NULL,  0,         0,           1,          -1 }
 };
 
 /* layout(s) */
@@ -116,6 +117,8 @@ static const char *swapcmd[]   = { "rofi", "-theme-str", "window {width: 30%;}",
 static const char *browsecmd[] = { "firefox", NULL }; 
 static const char *editcmd[]   = { "code", NULL };
 
+static const char *powermenu[] = { "/home/james/config/scripts/powermenu", NULL};
+
 static Key keys[] = {
 	/* modifier                     key              function        argument */
 	{ MODKEY,                       XK_Return,       spawn,          {.v = termcmd } },
@@ -127,8 +130,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_h,            focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_equal,        incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_minus,        incnmaster,     {.i = -1 } },
- // { MODKEY,                       XK_h,            setmfact,       {.f = -0.05} },
- // { MODKEY,                       XK_l,            setmfact,       {.f = +0.05} },
+	{ MODKEY|ShiftMask,             XK_equal,        setmfact,       {.f = -0.01} },
+	{ MODKEY|ShiftMask,             XK_minus,        setmfact,       {.f = +0.01} },
 	{ MODKEY|ShiftMask,             XK_Return,       zoom,           {0} },
 	{ MODKEY,                       XK_Tab,          view,           {0} },
  	{ MODKEY|ShiftMask,             XK_Tab,          spawn,          {.v = swapcmd} },
@@ -153,6 +156,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                             6)
 	TAGKEYS(                        XK_8,                             7)
 	TAGKEYS(                        XK_9,                             8)
+	{ MODKEY|ShiftMask,             XK_q,            spawn,          {.v = powermenu} },
 	{ MODKEY|ShiftMask,             XK_x,            quit,           {0} },
 };
 
