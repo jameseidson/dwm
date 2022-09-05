@@ -10,7 +10,7 @@ static const int horizpadbar        = 10;       /* horizontal padding for status
 static const int vertpadbar         = 10;       /* vertical padding for statusbar */
 static const int vertpad            = 10;       /* vertical padding of bar */
 static const int sidepad            = 10;       /* horizontal padding of bar */
-static const char *fonts[]          = { "JetBrainsMono Nerd Font:size=10" };
+static const char *fonts[]          = { "JetBrainsMono Nerd Font:size=8" };
 
 /* gruvbox colors */
 static const char dark0_hard[]      = "#1D2021";
