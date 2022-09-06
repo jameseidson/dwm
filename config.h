@@ -4,6 +4,7 @@
 static const unsigned int borderpx  = 5;        /* border pixel of windows */
 static const unsigned int gappx     = 10;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
+static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int horizpadbar        = 10;       /* horizontal padding for statusbar */
@@ -78,11 +79,11 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class       instance  title  tags mask  switchtotag  isfloating  monitor */
-	{ "Alacritty", NULL,     NULL,  1,         1,           0,          -1 },
-	{ "Code",      NULL,     NULL,  1 << 1,    1,           0,          -1 },
-	{ "firefox",   NULL,     NULL,  1 << 2,    1,           0,          -1 },
-	{ "Bitwarden", NULL,     NULL,  0,         0,           1,          -1 }
+	/* class       instance  title  tags mask  switchtotag  isfloating  isterminal  noswallow  monitor */
+	{ "Alacritty", NULL,     NULL,  1,         1,           0,          1,          0,         -1 },
+	{ "Code",      NULL,     NULL,  1 << 1,    1,           0,          0,          0,         -1 },
+	{ "firefox",   NULL,     NULL,  1 << 2,    1,           0,          0,          0,         -1 },
+	{ "Bitwarden", NULL,     NULL,  0,         0,           1,          0,          0,         -1 }
 };
 
 /* layout(s) */
