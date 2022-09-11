@@ -1692,6 +1692,8 @@ tile(Monitor *m)
 			if (ty + HEIGHT(c) < m->wh)
 				ty += HEIGHT(c);
 		}
+
+	snprintf(m->ltsymbol, sizeof(m->ltsymbol), "%d|=", m->nmaster);
 }
 
 void
