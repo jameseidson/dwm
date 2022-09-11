@@ -13,22 +13,22 @@ static const int showbar            = 1;     /* 0 means no bar */
 static const int topbar             = 1;     /* 0 means bottom bar */
 static const char *fonts[]          = { "JetBrainsMono Nerd Font:size=8" };
 
+/* colors */
 static const char dark0_hard[]      = "#1D2021";
 static const char gray_245[]        = "#928374";
 static const char light0_hard[]     = "#F9F5D7";
 static const char light1[]          = "#EBDBB2";
 static const char faded_yellow[]    = "#B57614";
 static const char forest_green[]    = "#302F17";
-
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
 static const char *colors[][3]      = {
-	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	/*                  text           background      border                         */
+	[SchemeNorm]      = { light1,      dark0_hard,    dark0_hard  }, // unfocused window
+	[SchemeSel]       = { light1,      dark0_hard,    gray_245    }, // focused window 
+	[SchemeStatus]    = { light1,      dark0_hard,    "#000000"   }, // Statusbar right
+	[SchemeTagsSel]   = { light0_hard, faded_yellow,  "#000000"   }, // Tagbar left selected
+	[SchemeTagsNorm]  = { light1,      dark0_hard,    "#000000"   }, // Tagbar left unselected
+	[SchemeInfoSel]   = { light0_hard, forest_green,  "#000000"   }, // infobar middle selected
+	[SchemeInfoNorm]  = { light1,      dark0_hard,    "#000000"   }, // infobar middle unselected
 };
 
 /* tagging */
@@ -137,4 +137,3 @@ static const Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
-
