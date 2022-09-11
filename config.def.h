@@ -11,7 +11,7 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;     /* 0 means no bar */
 static const int topbar             = 1;     /* 0 means bottom bar */
-static const char *fonts[]          = { "Misc Tamsyn:size=13", "JetBrainsMono Nerd Font:size=9" };
+static const char *fonts[]          = { "Misc Tamsyn:size=13", "JetBrainsMono Nerd Font:size=10" };
 
 /* colors */
 static const char dark0_hard[]      = "#1D2021";
@@ -71,7 +71,7 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
+// static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *termcmd[]   = { "alacritty", NULL };
 static const char *dmenucmd[]  = { "rofi", "-modi", "drun", "-show", "drun", NULL };
 static const char *swapcmd[]   = { "rofi", "-theme-str", "window {width: 30%;}", "-show", "window", NULL };
