@@ -11,7 +11,7 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;     /* 0 means no bar */
 static const int topbar             = 1;     /* 0 means bottom bar */
-static const char *fonts[]          = { "Misc Tamsyn:size=13", "JetBrainsMono Nerd Font:size=10" };
+static const char *fonts[]          = { "xos4 Terminus:size=12", "JetBrainsMono Nerd Font:size=10" };
 
 /* colors */
 static const char dark0_hard[]      = "#1D2021";
@@ -22,13 +22,13 @@ static const char faded_yellow[]    = "#B57614";
 static const char forest_green[]    = "#302F17";
 static const char *colors[][3]      = {
 	/*                  text           background      border                         */
-	[SchemeNorm]      = { light1,      dark0_hard,    dark0_hard  }, // unfocused window
-	[SchemeSel]       = { light1,      dark0_hard,    gray_245    }, // focused window 
-	[SchemeStatus]    = { light1,      dark0_hard,    "#000000"   }, // Statusbar right
-	[SchemeTagsSel]   = { light0_hard, faded_yellow,  "#000000"   }, // Tagbar left selected
-	[SchemeTagsNorm]  = { light1,      dark0_hard,    "#000000"   }, // Tagbar left unselected
-	[SchemeInfoSel]   = { light0_hard, forest_green,  "#000000"   }, // infobar middle selected
-	[SchemeInfoNorm]  = { light1,      dark0_hard,    "#000000"   }, // infobar middle unselected
+	[SchemeNorm]      = { light1,      dark0_hard,    forest_green  }, // unfocused window
+	[SchemeSel]       = { light1,      dark0_hard,    gray_245      }, // focused window 
+	[SchemeStatus]    = { light1,      dark0_hard,    "#000000"     }, // Statusbar right
+	[SchemeTagsSel]   = { light0_hard, faded_yellow,  "#000000"     }, // Tagbar left selected
+	[SchemeTagsNorm]  = { light1,      dark0_hard,    "#000000"     }, // Tagbar left unselected
+	[SchemeInfoSel]   = { light0_hard, forest_green,  "#000000"     }, // infobar middle selected
+	[SchemeInfoNorm]  = { light1,      dark0_hard,    "#000000"     }, // infobar middle unselected
 };
 
 /* tagging */
@@ -80,6 +80,8 @@ static const char *browsecmd[] = { "firefox", NULL };
 static const char *editcmd[]   = { "code", NULL };
 
 static const char *powermenu[] = { "/home/james/config/scripts/powermenu", NULL};
+static const char *inc_vol[]   = {"pamixer", "--increase", "1", NULL};
+static const char *dec_vol[]   = {"pamixer", "--decrease", "1", NULL};
 
 static Key keys[] = {
 	/* modifier                     key              function        argument */
@@ -90,10 +92,10 @@ static Key keys[] = {
 	{ MODKEY,                       XK_b,            togglebar,      {0} },
 	{ MODKEY,                       XK_l,            focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_h,            focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_equal,        incnmaster,     {.i = +1 } },
-	{ MODKEY,                       XK_minus,        incnmaster,     {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_equal,        setmfact,       {.f = -0.01} },
-	{ MODKEY|ShiftMask,             XK_minus,        setmfact,       {.f = +0.01} },
+	{ MODKEY|ShiftMask,             XK_equal,        incnmaster,     {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_minus,        incnmaster,     {.i = -1 } },
+	{ MODKEY,                       XK_equal,        spawn,          {.v = inc_vol} },
+	{ MODKEY,                       XK_minus,        spawn,          {.v = dec_vol} },
 	{ MODKEY|ShiftMask,             XK_Return,       zoom,           {0} },
 	{ MODKEY,                       XK_Tab,          view,           {0} },
  	{ MODKEY|ShiftMask,             XK_Tab,          spawn,          {.v = swapcmd} },
