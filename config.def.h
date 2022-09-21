@@ -32,7 +32,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "", "", "", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "", "", "", "", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -43,6 +43,7 @@ static const Rule rules[] = {
 	{ "Alacritty",       NULL,     NULL,  1,         1,           0,          1,          0,         -1 },
 	{ "Code",            NULL,     NULL,  1 << 1,    1,           0,          0,          0,         -1 },
 	{ "firefox",         NULL,     NULL,  1 << 2,    1,           0,          0,          0,         -1 },
+	{ "Mailspring",      NULL,     NULL,  1 << 3,    1,           0,          0,          0,         -1 },
 	{ "Bitwarden",       NULL,     NULL,  0,         0,           1,          0,          0,         -1 },
 	{ "Blueman-manager", NULL,     NULL,  0,         0,           1,          0,          0,         -1 }
 };
@@ -76,8 +77,10 @@ static const Layout layouts[] = {
 static const char *termcmd[]   = { "alacritty", NULL };
 static const char *dmenucmd[]  = { "rofi", "-modi", "drun", "-show", "drun", NULL };
 static const char *swapcmd[]   = { "rofi", "-theme-str", "window {width: 30%;}", "-show", "window", NULL };
-static const char *browsecmd[] = { "firefox", NULL }; 
-static const char *editcmd[]   = { "code", NULL };
+
+static const char *web[]  = { "firefox", NULL }; 
+static const char *code[] = { "code", NULL };
+static const char *mail[] = { "mailspring", NULL };
 
 static const char *powermenu[] = { "/home/james/config/scripts/powermenu", NULL};
 static const char *inc_vol[]   = {"pamixer", "--increase", "1", NULL};
@@ -85,32 +88,33 @@ static const char *dec_vol[]   = {"pamixer", "--decrease", "1", NULL};
 
 static Key keys[] = {
 	/* modifier                     key              function        argument */
-	{ MODKEY,                       XK_Return,       spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_Return,       spawn,          {.v = termcmd} },
 	{ MODKEY,                       XK_d,            spawn,          {.v = dmenucmd} },
-	{ MODKEY,                       XK_w,            spawn,          {.v = browsecmd} },
-	{ MODKEY,                       XK_c,            spawn,          {.v = editcmd} },
+	{ MODKEY,                       XK_w,            spawn,          {.v = web} },
+	{ MODKEY,                       XK_c,            spawn,          {.v = code} },
+	{ MODKEY,                       XK_m,            spawn,          {.v = mail} },
 	{ MODKEY,                       XK_b,            togglebar,      {0} },
-	{ MODKEY,                       XK_l,            focusstack,     {.i = +1 } },
-	{ MODKEY,                       XK_h,            focusstack,     {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_equal,        incnmaster,     {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_minus,        incnmaster,     {.i = -1 } },
+	{ MODKEY,                       XK_l,            focusstack,     {.i = +1} },
+	{ MODKEY,                       XK_h,            focusstack,     {.i = -1} },
+	{ MODKEY|ShiftMask,             XK_equal,        incnmaster,     {.i = +1} },
+	{ MODKEY|ShiftMask,             XK_minus,        incnmaster,     {.i = -1} },
 	{ MODKEY,                       XK_equal,        spawn,          {.v = inc_vol} },
 	{ MODKEY,                       XK_minus,        spawn,          {.v = dec_vol} },
 	{ MODKEY|ShiftMask,             XK_Return,       zoom,           {0} },
 	{ MODKEY,                       XK_Tab,          view,           {0} },
  	{ MODKEY|ShiftMask,             XK_Tab,          spawn,          {.v = swapcmd} },
 	{ MODKEY,                       XK_q,            killclient,     {0} },
-	{ MODKEY,                       XK_t,            setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,            setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_m,            setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_space,        setlayout,      {0} },
+	{ MODKEY,                       XK_t,            setlayout,      {.v = &layouts[0]} }, // tiled
+	{ MODKEY,                       XK_space,        setlayout,      {.v = &layouts[1]} }, // floating
+	{ MODKEY,                       XK_f,            setlayout,      {.v = &layouts[2]} }, // fullscreen ('monacle')
+	// { MODKEY,                       XK_space,        setlayout,      {0} },             // swap to last used layout
 	{ MODKEY|ShiftMask,             XK_space,        togglefloating, {0} },
-	{ MODKEY,                       XK_0,            view,           {.ui = ~0 } },
-	{ MODKEY|ShiftMask,             XK_0,            tag,            {.ui = ~0 } },
-	{ MODKEY,                       XK_bracketleft,  focusmon,       {.i = -1 } },
-	{ MODKEY,                       XK_bracketright, focusmon,       {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_bracketleft,  tagmon,         {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_bracketright, tagmon,         {.i = +1 } },
+	{ MODKEY,                       XK_0,            view,           {.ui = ~0} },
+	{ MODKEY|ShiftMask,             XK_0,            tag,            {.ui = ~0} },
+	{ MODKEY,                       XK_bracketleft,  focusmon,       {.i = -1} },
+	{ MODKEY,                       XK_bracketright, focusmon,       {.i = +1} },
+	{ MODKEY|ShiftMask,             XK_bracketleft,  tagmon,         {.i = -1} },
+	{ MODKEY|ShiftMask,             XK_bracketright, tagmon,         {.i = +1} },
 	TAGKEYS(                        XK_1,                             0)
 	TAGKEYS(                        XK_2,                             1)
 	TAGKEYS(                        XK_3,                             2)
