@@ -11,7 +11,7 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;     /* 0 means no bar */
 static const int topbar             = 1;     /* 0 means bottom bar */
-static const char *fonts[]          = { "SF Mono:size=11", "Hack Nerd Font:size=11" };
+static const char *fonts[]          = { "JetBrainsMono Nerd Font:size=11" };
 
 /* colors */
 static const char dark0_hard[]      = "#1D2021";
@@ -39,13 +39,14 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class             instance  title  tags mask  switchtotag  isfloating  isterminal  noswallow  monitor */
-	{ "Alacritty",       NULL,     NULL,  1,         1,           0,          1,          0,         -1 },
-	{ "Code",            NULL,     NULL,  1 << 1,    1,           0,          0,          0,         -1 },
-	{ "firefox",         NULL,     NULL,  1 << 2,    1,           0,          0,          0,         -1 },
-	{ "Mailspring",      NULL,     NULL,  1 << 3,    1,           0,          0,          0,         -1 },
-	{ "Bitwarden",       NULL,     NULL,  0,         0,           1,          0,          0,         -1 },
-	{ "Blueman-manager", NULL,     NULL,  0,         0,           1,          0,          0,         -1 }
+	/* class                instance  title  tags mask  switchtotag  isfloating  isterminal  noswallow  monitor */
+	{ "Alacritty",          NULL,     NULL,  1,         1,           0,          1,          0,         -1 },
+	{ "Code",               NULL,     NULL,  1 << 1,    1,           0,          0,          0,         -1 },
+	{ "firefox",            NULL,     NULL,  1 << 2,    1,           0,          0,          0,         -1 },
+	{ "Mailspring",         NULL,     NULL,  1 << 3,    1,           0,          0,          0,         -1 },
+	{ "Bitwarden",          NULL,     NULL,  0,         0,           1,          0,          0,         -1 },
+	{ "Blueman-manager",    NULL,     NULL,  0,         0,           1,          0,          0,         -1 },
+	{ "Qemu-system-x86_64", NULL,     NULL,  0,         0,           0,          0,          1,         -1 }
 };
 
 /* layout(s) */
