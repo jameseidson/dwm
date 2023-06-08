@@ -43,7 +43,7 @@ static const Rule rules[] = {
 	{ "Alacritty",          NULL,     NULL,     1,        1,           0,          1,          0,         -1 },
 	// { NULL,                 NULL,     "helix",  1 << 1,   1,           0,          0,          0,         -1 },
 	{ "firefox",            NULL,     NULL,     1 << 2,   1,           0,          0,          0,         -1 },
-	{ "Mailspring",         NULL,     NULL,     1 << 9,   1,           0,          0,          0,         -1 },
+	{ "Mailspring",         NULL,     NULL,     1 << 8,   1,           0,          0,          0,         -1 },
 	{ "Bitwarden",          NULL,     NULL,     0,        0,           1,          0,          0,         -1 },
 	{ "Blueman-manager",    NULL,     NULL,     0,        0,           1,          0,          0,         -1 },
 	{ "Qemu-system-x86_64", NULL,     NULL,     0,        0,           0,          0,          1,         -1 }
