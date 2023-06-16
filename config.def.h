@@ -41,9 +41,9 @@ static const Rule rules[] = {
 	 */
 	/* class                instance  title     tags mask switchtotag  isfloating  isterminal  noswallow  monitor */
 	{ "Alacritty",          NULL,     NULL,     1,        1,           0,          1,          0,         -1 },
-	// { NULL,                 NULL,     "helix",  1 << 1,   1,           0,          0,          0,         -1 },
+	{ "Code",               NULL,     NULL,     1 << 1,   1,           0,          0,          0,         -1 },
 	{ "firefox",            NULL,     NULL,     1 << 2,   1,           0,          0,          0,         -1 },
-	{ "Mailspring",         NULL,     NULL,     1 << 8,   1,           0,          0,          0,         -1 },
+	{ "Mailspring",         NULL,     NULL,     1 << 9,   1,           0,          0,          0,         -1 },
 	{ "Bitwarden",          NULL,     NULL,     0,        0,           1,          0,          0,         -1 },
 	{ "Blueman-manager",    NULL,     NULL,     0,        0,           1,          0,          0,         -1 },
 	{ "Qemu-system-x86_64", NULL,     NULL,     0,        0,           0,          0,          1,         -1 }
@@ -80,7 +80,7 @@ static const char *dmenucmd[] = { "rofi", "-modi", "drun", "-show", "drun", NULL
 static const char *swapcmd[]  = { "rofi", "-theme-str", "window {width: 30%;}", "-show", "window", NULL };
 
 static const char *web[]    = { "firefox", NULL }; 
-// static const char *editor[] = { "alacritty", "--title", "helix", "-e", "hx", NULL };
+static const char *editor[] = { "code", NULL };
 static const char *mail[]   = { "mailspring", NULL };
 
 static const char *powermenu[] = { "/home/james/config/scripts/powermenu", NULL};
@@ -92,7 +92,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Return,       spawn,          {.v = termcmd} },
 	{ MODKEY,                       XK_d,            spawn,          {.v = dmenucmd} },
 	{ MODKEY,                       XK_w,            spawn,          {.v = web} },
-	// { MODKEY,                       XK_c,            spawn,          {.v = editor} },
+	{ MODKEY,                       XK_c,            spawn,          {.v = editor} },
 	{ MODKEY,                       XK_F1,           spawn,          {.v = mail} },
 	{ MODKEY,                       XK_b,            togglebar,      {0} },
 	{ MODKEY,                       XK_l,            focusstack,     {.i = +1} },
