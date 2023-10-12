@@ -42,7 +42,7 @@ static const Rule rules[] = {
 	/* class                instance  title     tags mask switchtotag  isfloating  isterminal  noswallow  monitor */
 	{ "Alacritty",          NULL,     NULL,     1,        1,           0,          1,          0,         -1 },
 	{ "Code",               NULL,     NULL,     1 << 1,   1,           0,          0,          0,         -1 },
-	{ "firefox",            NULL,     NULL,     1 << 2,   1,           0,          0,          0,         -1 },
+	{ "Google-chrome",      NULL,     NULL,     1 << 2,   1,           0,          0,          0,         -1 },
 	{ "Mailspring",         NULL,     NULL,     1 << 9,   1,           0,          0,          0,         -1 },
 	{ "Bitwarden",          NULL,     NULL,     0,        0,           1,          0,          0,         -1 },
 	{ "Blueman-manager",    NULL,     NULL,     0,        0,           1,          0,          0,         -1 },
@@ -79,7 +79,7 @@ static const char *termcmd[]  = { "alacritty", NULL };
 static const char *dmenucmd[] = { "rofi", "-modi", "drun", "-show", "drun", NULL };
 static const char *swapcmd[]  = { "rofi", "-theme-str", "window {width: 30%;}", "-show", "window", NULL };
 
-static const char *web[]    = { "firefox", NULL }; 
+static const char *web[]    = { "google-chrome-stable", NULL }; 
 static const char *editor[] = { "code", NULL };
 static const char *mail[]   = { "mailspring", NULL };
 
